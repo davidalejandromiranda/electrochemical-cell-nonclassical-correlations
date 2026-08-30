@@ -20,21 +20,12 @@ from matplotlib.ticker import MultipleLocator
 import numpy as np
 import pandas as pd
 
+from scr.figure_styles import FIGURE_STYLES
+
 
 MICRO = 1e6
 BODE_FREQUENCY_LIMITS = (0.1, 1.0e6)
-DUMMY_RESONANCE = {
-    "show": False,
-    "series_resistance_ohm": 100.0,
-    "parallel_resistance_ohm": 1.0e3,
-    "capacitance_f": 1.0e-6,
-    "color": "black",
-    "linestyle": ":",
-    "linewidth": 1.2,
-    "label": r"$f_{\mathrm{dummy}}$",
-    "annotate": True,
-    "annotation": r"$f_{\mathrm{dummy}}$",
-}
+DUMMY_RESONANCE = FIGURE_STYLES["figure_7"]["bode"]["dummy_resonance"]
 REQUIRED_COLUMNS = (
     "Index",
     "C' (F)",
@@ -73,238 +64,6 @@ EXPECTED_EXPORTS = {
     "Supplementary_Fig4/Configuration3.xlsx": (80, 1.0e6, 0.1),
 }
 
-PAPER_FIGURE_STYLES = {
-    "figure_4": {
-        "title": "",
-        "series": {
-            "without_network": {
-                "color": "black",
-                "marker": "o",
-                "s": 14,
-                "label": "Without CE-branch network",
-                "title": "",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "r_1k": {
-                "color": "red",
-                "marker": "s",
-                "s": 14,
-                "label": r"1$\;k\Omega$",
-                "title": "",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "r_1k_c_1uf": {
-                "color": "purple",
-                "marker": "^",
-                "s": 14,
-                "label": r"1$\;k\Omega$, 1$\mu F$",
-                "title": "",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "r_3k": {
-                "color": "darkorange",
-                "marker": "v",
-                "s": 14,
-                "label": r"3$\;k\Omega$",
-                "title": "",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "r_3k_c_1uf": {
-                "color": "green",
-                "marker": "D",
-                "s": 14,
-                "label": r"3$\;k\Omega$, 1$\mu F$",
-                "title": "",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "r_10k": {
-                "color": "gold",
-                "marker": "P",
-                "s": 14,
-                "label": r"10$\;k\Omega$",
-                "title": "",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "r_10k_c_1uf": {
-                "color": "springgreen",
-                "marker": "X",
-                "s": 14,
-                "label": r"10$\;k\Omega$, 1$\mu F$",
-                "title": "",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "r_47k": {
-                "color": "blue",
-                "marker": "*",
-                "s": 14,
-                "label": r"47$\;k\Omega$",
-                "title": "",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-        },
-        "model": {
-            "color": "black",
-            "linestyle": "-",
-            "linewidth": 1.0,
-            "label": "Dummy-cell model",
-        },
-        "legend": {"show": True, "kwargs": {"frameon": False}},
-    },
-    "figure_5": {
-        "title": "(a) Nyquist",
-        "panel_box_aspect": 0.65,
-        "bode": {
-            "title": "(b) Bode",
-            "x_limits": BODE_FREQUENCY_LIMITS,
-            "dummy_resonance": DUMMY_RESONANCE,
-            "legend": {"show": False, "kwargs": {"fontsize": 9, "frameon": False}},
-        },
-        "series": {
-            "configuration_2": {
-                "color": "black",
-                "marker": "D",
-                "s": 12,
-                "label": "Configuration 2",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "c_eq_points": {
-                "color": "slategrey",
-                "marker": "o",
-                "show_marker": False,
-                "show_line": False,
-                "s": 12,
-                "label": None,
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "c_eq_line": {
-                "color": "slategrey",
-                "show_marker": False,
-                "show_line": True,
-                "linestyle": "-",
-                "linewidth": 1.5,
-                "label": r"$C_{eq}$",
-            },
-        },
-        "legend": {
-            "show": True,
-            "kwargs": {"fontsize": 9, "framealpha": 0.5, "labelspacing": 0.3, "frameon": False},
-        },
-    },
-    "configuration_1_vs_3": {
-        "title": "(a) Nyquist",
-        "panel_box_aspect": 0.65,
-        "bode": {
-            "title": "(b) Bode",
-            "x_limits": BODE_FREQUENCY_LIMITS,
-            "dummy_resonance": DUMMY_RESONANCE,
-            "legend": {"show": False, "kwargs": {"fontsize": 9, "frameon": False}},
-        },
-        "series": {
-            "configuration_1": {
-                "color": "green",
-                "marker": "o",
-                "s": 12,
-                "label": "Configuration 1",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "configuration_3": {
-                "color": "red",
-                "marker": "x",
-                "s": 12,
-                "label": "Configuration 3",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-        },
-        "legend": {"show": True, "kwargs": {"fontsize": 9, "frameon": False}},
-    },
-    "figure_7": {
-        "title": "(a) Nyquist",
-        "panel_box_aspect": 0.65,
-        "bode": {
-            "title": "(b) Bode",
-            "x_limits": BODE_FREQUENCY_LIMITS,
-            "dummy_resonance": {**DUMMY_RESONANCE, "show": True},
-            "legend": {"show": False, "kwargs": {"fontsize": 9, "frameon": False}},
-        },
-        "series": {
-            "configuration_3_dummy": {
-                "color": "purple",
-                "marker": "P",
-                "s": 12,
-                "label": "Configuration 3 + dummy on CE",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "configuration_3": {
-                "color": "red",
-                "marker": "x",
-                "s": 12,
-                "label": "Configuration 3",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "configuration_2_dummy": {
-                "color": "black",
-                "marker": "D",
-                "s": 12,
-                "label": "Configuration 2 + dummy on CE",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "configuration_1_pt_ce": {
-                "show": False,
-                "color": "green",
-                "marker": "o",
-                "s": 12,
-                "label": "Configuration 1",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-        },
-        "legend": {"show": True, "kwargs": {"fontsize": 9, "frameon": False}},
-    },
-    "supplementary_pair": {
-        "title": "(a) Nyquist",
-        "panel_box_aspect": 0.65,
-        "bode": {
-            "title": "(b) Bode",
-            "x_limits": BODE_FREQUENCY_LIMITS,
-            "dummy_resonance": DUMMY_RESONANCE,
-            "legend": {"show": False, "kwargs": {"frameon": False}},
-        },
-        "series": {
-            "configuration_1": {
-                "color": "green",
-                "marker": "o",
-                "s": 14,
-                "label": "Configuration 1",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-            "configuration_3": {
-                "color": "red",
-                "marker": "x",
-                "s": 14,
-                "label": "Configuration 3",
-                "linestyle": "None",
-                "linewidth": 1.0,
-            },
-        },
-        "legend": {"show": True, "kwargs": {"frameon": False}},
-    },
-}
 
 
 def _deep_merge(base: dict, updates: Mapping | None) -> dict:
@@ -319,12 +78,16 @@ def _deep_merge(base: dict, updates: Mapping | None) -> dict:
     return result
 
 
+STYLE_ALIASES = {"configuration_1_vs_3": "figure_6"}
+
+
 def figure_style(style_name: str, overrides: Mapping | None = None) -> dict:
-    """Return a mutable copy of a paper-default figure style."""
-    if style_name not in PAPER_FIGURE_STYLES:
-        available = ", ".join(sorted(PAPER_FIGURE_STYLES))
+    """Return a mutable copy of a figure style from ``scr.figure_styles``."""
+    resolved_name = STYLE_ALIASES.get(style_name, style_name)
+    if resolved_name not in FIGURE_STYLES:
+        available = ", ".join(sorted(FIGURE_STYLES))
         raise KeyError(f"Unknown style {style_name!r}; available styles: {available}")
-    return _deep_merge(PAPER_FIGURE_STYLES[style_name], overrides)
+    return _deep_merge(FIGURE_STYLES[resolved_name], overrides)
 
 
 def _scatter_kwargs(series_style: Mapping, *, label: str | None = None) -> dict:
@@ -518,6 +281,7 @@ def _export(data_root: str | Path, relative_path: str) -> pd.DataFrame:
 
 
 def _capacitance(frame: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
+    """Return potentiostat-exported capacitance components without recalculation."""
     return (
         frame["C' (F)"].to_numpy(dtype=float),
         frame["C'' (F)"].to_numpy(dtype=float),

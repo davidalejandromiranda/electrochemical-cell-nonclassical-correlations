@@ -54,8 +54,8 @@ Every workbook contains one sheet, `Sheet1`, with these columns:
 | Column | Meaning |
 |---|---|
 | `Index` | Exported ordinal index |
-| `C' (F)` | Real component of complex capacitance, F |
-| `C'' (F)` | Imaginary component used in the published capacitance plots, F |
+| `C' (F)` | Real component of complex capacitance exported by the potentiostat, F |
+| `C'' (F)` | Imaginary component of complex capacitance exported by the potentiostat and used in the published capacitance plots, F |
 | `Frequency (Hz)` | Measurement frequency, Hz |
 | `Z' (Ω)` | Real component of impedance, Ω |
 | `-Z'' (Ω)` | Negative imaginary impedance component, Ω |
@@ -63,7 +63,7 @@ Every workbook contains one sheet, `Sheet1`, with these columns:
 | `-Phase (°)` | Negative impedance phase, degrees |
 | `Time (s)` | Exported acquisition time, s |
 
-The Figure 5 calculation constructs complex capacitance as `C = C' - i C''` for each independently characterized bar and evaluates `C_eq = C_1 C_2 / (C_1 + C_2)`. Other capacitance figures plot the exported `C'` and `C''` columns directly after conversion from F to μF.
+The capacitance convention is `C^* = C' - jC''`. The reproduction workflow uses the exported `C' (F)` and `C'' (F)` columns directly after conversion from F to μF; it does not recalculate those plotted capacitance components from impedance. The Figure 5 calculation constructs complex capacitance as `C = C' - i C''` from the exported capacitance columns for each independently characterized bar and evaluates `C_eq = C_1 C_2 / (C_1 + C_2)` in memory.
 
 ## Integrity and provenance
 

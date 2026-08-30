@@ -16,6 +16,9 @@ The EIS measurements are macroscopic impedance observations. They do not directl
 ├── README.md
 ├── data_visualization.ipynb
 ├── requirements.txt
+├── CITATION.cff
+├── LICENSE
+├── .zenodo.json
 ├── data/
 │   ├── README.md
 │   ├── figure_provenance.csv
@@ -31,7 +34,7 @@ The EIS measurements are macroscopic impedance observations. They do not directl
     └── validate_notebook.py
 ```
 
-- `data/` contains 23 complete Excel exports, their SHA-256 integrity manifest, and the figure-provenance map.
+- `data/` contains 23 complete raw Excel exports, their SHA-256 integrity manifest, and the figure-provenance map.
 - `scr/` contains all reusable loading, validation, transformation, and plotting functions.
 - `data_visualization.ipynb` is the single public notebook and displays every data-driven main-text and Supplementary Material figure supported by the released exports.
 
@@ -79,6 +82,8 @@ To keep the notebook readable, it does not display the complete style dictionary
 
 Figures 5–7 and S1–S4 are rendered as capacitance Nyquist panels at left plus two capacitance Bode panels at right. The upper Bode panel plots C' versus frequency and the lower Bode panel plots C'' versus frequency. Both Bode panels use a common logarithmic x-axis and right-side y-axis labels; y-limits are not imposed by default. The default panel titles identify the Nyquist and Bode views as `(a)` and `(b)`, and the panel geometry is set for a wider-than-tall layout. Figure 4 remains the original impedance validation figure.
 
+The potentiostat exported the `C' (F)` and `C'' (F)` columns directly. The reproduction workflow uses those exported capacitance columns for Figures 5–7 and S1–S4; it does not recalculate capacitance from impedance for the plotted experimental series. The convention used for capacitance is `C^* = C' - jC''`. Impedance is documented as the measured quantity `Z_m`, without complex-asterisk notation.
+
 Figure 7 marks the nominal dummy-cell frequency with a black dotted vertical line, calculated as `1/(2*pi*R2*C)`. The default dummy values are `R1 = 100 Ohm`, `R2 = 1 kOhm`, `C = 1 uF`, `tau_dummy = 1.00 ms`, and `f_dummy = 159.15 Hz`. The line is controlled by `SHOW_FIGURE_7_DUMMY_FREQUENCY` in the notebook and by `FIGURE_STYLES["figure_7"]["bode"]["dummy_resonance"]["show"]` in `scr/figure_styles.py`. The dummy-cell measurement itself is not plotted.
 
 The Configuration 1 Pt-CE measurement is available in `data/Main_Fig6-7/Configuration 1.xlsx` and can be added to Figure 7 by setting `FIGURE_STYLES["figure_7"]["series"]["configuration_1_pt_ce"]["show"] = True`.
@@ -108,7 +113,9 @@ Exact source filenames and historical display-point selections are recorded in `
 The release contains the complete 23-file Excel set selected by the authors for the public repository:
 
 - eight 60-point control exports covering 100 kHz to 0.1 Hz;
-- fifteen 80-point experimental exports for the 10 reliable bar measurements covering 1 MHz to 0.1 Hz.
+- fifteen 80-point experimental exports for the 10 valid bars organized into five pairs, covering 1 MHz to 0.1 Hz.
+
+The five pairs were formed because the individual Configuration 1 characterizations, measured with Pt as CE, produced comparable spectra. Pairing was therefore based on the Pt-CE characterization step rather than on the subsequent Configuration 3 outcome.
 
 All exports have a single `Sheet1`, nine expected numeric columns, strictly descending frequency, and no missing cells in the released tables. `data/raw_sha256.csv` records their audited SHA-256 digests. The notebook verifies the hashes and structural expectations before generating figures.
 
@@ -133,7 +140,14 @@ It does not reproduce instrument acquisition, electrode fabrication, or an exact
 
 ## Citation, licensing, and archiving
 
-No `CITATION.cff`, license, release, repository DOI, or Zenodo record is included because those items have not been verified or authorized. In the absence of a license, no reuse permission is granted beyond rights that apply independently by law. Citation and archival metadata should be added only after author approval and final publication details are available.
+Use `CITATION.cff` to cite the repository release. It records the associated paper title, authors, repository URL, and planned release version `1.0.0`; it intentionally does not include ORCID identifiers, a DOI, or a publication date that has not yet been assigned.
+
+This repository uses dual licensing:
+
+- Code in `scr/`, `data_visualization.ipynb`, and Python snippets in the documentation: MIT License.
+- Raw data and documentation in `data/`, `README.md`, `data/README.md`, `CITATION.cff`, and `.zenodo.json`: Creative Commons Attribution 4.0 International (CC BY 4.0).
+
+The `.zenodo.json` file prepares dataset metadata for the future Zenodo deposition. No tag, GitHub release, Zenodo deposition, or DOI has been created in this staging copy.
 
 ## AI-assisted work
 

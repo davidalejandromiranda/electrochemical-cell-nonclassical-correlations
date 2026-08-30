@@ -1,0 +1,39 @@
+{
+  "title": "Data and code for: Counter-Electrode Dependence of the Working-Electrode Capacitance in Three-Electrode TiO2 + rGO Cells: Classical Controls and Interpretation within a Quantum-Discord Framework",
+  "upload_type": "dataset",
+  "description": "Author-selected raw electrochemical impedance spectroscopy exports for the 10 reliable TiO2+rGO bar measurements organized into five pairs, dummy-control exports, and Python code/notebook used to reproduce the data-driven figures in the associated paper and Supplementary Material.",
+  "creators": [
+    {
+      "name": "Gonzalez, Kevin A.",
+      "affiliation": "Universidad Industrial de Santander, 680002 Bucaramanga, Santander, Colombia"
+    },
+    {
+      "name": "Toledo, Nicolás H.",
+      "affiliation": "Universidad Industrial de Santander, 680002 Bucaramanga, Santander, Colombia"
+    },
+    {
+      "name": "Miranda, David A.",
+      "affiliation": "Universidad Industrial de Santander, 680002 Bucaramanga, Santander, Colombia"
+    }
+  ],
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "version": "1.0.0",
+  "keywords": [
+    "electrochemical impedance spectroscopy",
+    "complex capacitance",
+    "counter electrode",
+    "TiO2+rGO",
+    "dummy cell",
+    "reproducibility"
+  ],
+  "notes": "Code in scr/, data_visualization.ipynb, and Python snippets in the documentation is released under the MIT License. Raw data and documentation are released under CC BY 4.0, as specified in LICENSE.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/davidalejandromiranda/electrochemical-cell-nonclassical-correlations",
+      "relation": "isSupplementTo",
+      "scheme": "url",
+      "resource_type": "software"
+    }
+  ]
+}

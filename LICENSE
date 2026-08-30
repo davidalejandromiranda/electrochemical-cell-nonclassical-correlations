@@ -1,4 +1,17 @@
-MIT License
+Repository licensing
+====================
+
+This repository uses separate licenses for code and non-code research
+materials.
+
+Code license: MIT
+-----------------
+
+The MIT License applies to:
+
+- `scr/`
+- `data_visualization.ipynb`
+- Python code snippets in `README.md` and `data/README.md`
 
 Copyright (c) 2026 David Alejandro Miranda Mercado
 
@@ -19,3 +32,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Data and documentation license: CC BY 4.0
+-----------------------------------------
+
+The Creative Commons Attribution 4.0 International License (CC BY 4.0)
+applies to:
+
+- `data/`
+- `README.md`
+- `data/README.md`
+- `CITATION.cff`
+- `.zenodo.json`
+
+You may share and adapt these materials for any purpose, including commercial
+use, provided that appropriate credit is given, a link to the license is
+provided, and changes are indicated.
+
+License text: https://creativecommons.org/licenses/by/4.0/
