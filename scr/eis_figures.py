@@ -193,28 +193,28 @@ def _format_bode_axes(real_axis, imaginary_axis, bode_style: Mapping) -> None:
     _plot_dummy_characteristic_frequency(imaginary_axis, bode_style.get("dummy_characteristic_frequency", {}))
 
 
-def _dummy_characteristic_frequency_frequency(resonance_style: Mapping) -> float:
+def _calculate_dummy_characteristic_frequency(frequency_style: Mapping) -> float:
     resistance = float(
-        resonance_style.get(
+        frequency_style.get(
             "parallel_resistance_ohm",
-            resonance_style.get("resistance_ohm", DUMMY_CHARACTERISTIC_FREQUENCY["parallel_resistance_ohm"]),
+            frequency_style.get("resistance_ohm", DUMMY_CHARACTERISTIC_FREQUENCY["parallel_resistance_ohm"]),
         )
     )
-    capacitance = float(resonance_style.get("capacitance_f", DUMMY_CHARACTERISTIC_FREQUENCY["capacitance_f"]))
+    capacitance = float(frequency_style.get("capacitance_f", DUMMY_CHARACTERISTIC_FREQUENCY["capacitance_f"]))
     return 1.0 / (2.0 * pi * resistance * capacitance)
 
 
-def _plot_dummy_characteristic_frequency(axis, resonance_style: Mapping) -> None:
-    if not resonance_style.get("show", False):
+def _plot_dummy_characteristic_frequency(axis, frequency_style: Mapping) -> None:
+    if not frequency_style.get("show", False):
         return
-    frequency = _dummy_characteristic_frequency_frequency(resonance_style)
+    frequency = _calculate_dummy_characteristic_frequency(frequency_style)
     keys = ("color", "linestyle", "linewidth", "alpha")
-    line_kwargs = {key: resonance_style[key] for key in keys if key in resonance_style}
-    line_kwargs["label"] = resonance_style.get("label", DUMMY_CHARACTERISTIC_FREQUENCY["label"])
+    line_kwargs = {key: frequency_style[key] for key in keys if key in frequency_style}
+    line_kwargs["label"] = frequency_style.get("label", DUMMY_CHARACTERISTIC_FREQUENCY["label"])
     axis.axvline(frequency, **line_kwargs)
-    if resonance_style.get("annotate", False):
+    if frequency_style.get("annotate", False):
         axis.annotate(
-            resonance_style.get("annotation", DUMMY_CHARACTERISTIC_FREQUENCY["annotation"]),
+            frequency_style.get("annotation", DUMMY_CHARACTERISTIC_FREQUENCY["annotation"]),
             xy=(frequency, 0.96),
             xycoords=("data", "axes fraction"),
             xytext=(4, 0),
@@ -222,8 +222,8 @@ def _plot_dummy_characteristic_frequency(axis, resonance_style: Mapping) -> None
             rotation=90,
             va="top",
             ha="left",
-            fontsize=resonance_style.get("fontsize", 8),
-            color=resonance_style.get("color", "black"),
+            fontsize=frequency_style.get("fontsize", 8),
+            color=frequency_style.get("color", "black"),
         )
 
 
