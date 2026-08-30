@@ -1,6 +1,6 @@
 # Counter-Electrode Dependence of the Working-Electrode Capacitance in Three-Electrode TiO2 + rGO Cells: Classical Controls and Interpretation within a Quantum-Discord Framework
 
-**Authors:** Kevin A. Gonzalez, Nicolás H. Toledo, and David A. Miranda  
+**Authors:** Kevin A. Gonzalez, Nicolás H. Toledo, and David A. Miranda
 **Affiliation:** Universidad Industrial de Santander, 680002 Bucaramanga, Santander, Colombia
 
 ## Scope
@@ -11,9 +11,11 @@ The EIS measurements are macroscopic impedance observations. They do not directl
 
 ## Repository metadata
 
-**Repository record title:** Data and code for: Counter-Electrode Dependence of the Working-Electrode Capacitance in Three-Electrode TiO2 + rGO Cells: Classical Controls and Interpretation within a Quantum-Discord Framework  
-**Planned release version:** 1.0.0  
-**Description:** Raw electrochemical impedance spectroscopy exports for the 10 valid TiO2+rGO bars organized into five pairs, dummy-control exports, and Python code/notebook used to reproduce the data-driven figures in the associated paper and Supplementary Material.  
+**Repository record title:** Data and code for: Counter-Electrode Dependence of the Working-Electrode Capacitance in Three-Electrode TiO2 + rGO Cells: Classical Controls and Interpretation within a Quantum-Discord Framework
+**Release version:** 1.0.0
+**Release date:** 2026-08-30
+**Zenodo DOI:** [10.5281/zenodo.22178264](https://doi.org/10.5281/zenodo.22178264)
+**Description:** Raw electrochemical impedance spectroscopy exports for the 10 valid TiO2+rGO bars organized into five pairs, dummy-control exports, and Python code/notebook used to reproduce the data-driven figures in the associated paper and Supplementary Material.
 **Keywords:** electrochemical impedance spectroscopy; complex capacitance; counter electrode; TiO2+rGO; dummy cell; reproducibility
 
 ## Contents
@@ -41,9 +43,9 @@ The EIS measurements are macroscopic impedance observations. They do not directl
     └── validate_notebook.py
 ```
 
-- `data/` contains 23 complete raw Excel exports, their SHA-256 integrity manifest, and the figure-provenance map.
-- `scr/` contains all reusable loading, validation, transformation, and plotting functions.
-- `data_visualization.ipynb` is the single public notebook and displays every data-driven main-text and Supplementary Material figure supported by the released exports.
+* `data/` contains 23 complete raw Excel exports, their SHA-256 integrity manifest, and the figure-provenance map.
+* `scr/` contains all reusable loading, validation, transformation, and plotting functions.
+* `data_visualization.ipynb` is the single public notebook and displays every data-driven main-text and Supplementary Material figure supported by the released exports.
 
 The repository does not include manuscript PDFs, internal reviews, historical drafts, generated image files, laboratory records, or the original working notebook. Figures 1–3 are a photograph and experimental diagrams rather than numerical data plots; they are identified in the provenance map but are not reproduced here.
 
@@ -103,15 +105,15 @@ figure = plot_figure_6(DATA_ROOT, style=FIGURE_STYLES["figure_6"])
 
 ## Figure coverage
 
-| Item | Repository input | Function | Coverage |
-|---|---|---|---|
-| Figure 1 | — | — | Photograph; not data-generated |
-| Figures 2–3 | — | — | Experimental diagrams; not data-generated |
-| Figure 4 | `data/Main_Fig4/` | `plot_figure_4` | Eight dummy-cell/potentiostat validation exports and coded reference model |
-| Figure 5 | `data/Main_Fig5/` | `plot_figure_5` | Measured Configuration 2 and calculated equivalent response |
-| Figure 6 | `data/Main_Fig6-7/Configuration 1.xlsx`, `Configuration 3.xlsx` | `plot_figure_6` | Configuration 1 versus Configuration 3 |
-| Figure 7 | `data/Main_Fig6-7/Configuration 3 + dummy on CE.xlsx`, `Configuration 3.xlsx`, `Configuration 2 + dummy on CE.xlsx`; optional `Configuration 1.xlsx` | `plot_figure_7` | Passive dummy-cell comparison |
-| Figures S1–S4 | corresponding `data/Supplementary_Fig*/` directory | `plot_supplementary_figure_1` … `_4` | Four additional Configuration 1–Configuration 3 comparisons |
+| Item          | Repository input                                                                                                                                     | Function                             | Coverage                                                                   |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | -------------------------------------------------------------------------- |
+| Figure 1      | —                                                                                                                                                    | —                                    | Photograph; not data-generated                                             |
+| Figures 2–3   | —                                                                                                                                                    | —                                    | Experimental diagrams; not data-generated                                  |
+| Figure 4      | `data/Main_Fig4/`                                                                                                                                    | `plot_figure_4`                      | Eight dummy-cell/potentiostat validation exports and coded reference model |
+| Figure 5      | `data/Main_Fig5/`                                                                                                                                    | `plot_figure_5`                      | Measured Configuration 2 and calculated equivalent response                |
+| Figure 6      | `data/Main_Fig6-7/Configuration 1.xlsx`, `Configuration 3.xlsx`                                                                                      | `plot_figure_6`                      | Configuration 1 versus Configuration 3                                     |
+| Figure 7      | `data/Main_Fig6-7/Configuration 3 + dummy on CE.xlsx`, `Configuration 3.xlsx`, `Configuration 2 + dummy on CE.xlsx`; optional `Configuration 1.xlsx` | `plot_figure_7`                      | Passive dummy-cell comparison                                              |
+| Figures S1–S4 | corresponding `data/Supplementary_Fig*/` directory                                                                                                   | `plot_supplementary_figure_1` … `_4` | Four additional Configuration 1–Configuration 3 comparisons                |
 
 Exact source filenames and historical display-point selections are recorded in `data/figure_provenance.csv`. Display selections are applied in code to the complete arrays loaded from the raw exports. They do not truncate or overwrite the released files.
 
@@ -119,8 +121,8 @@ Exact source filenames and historical display-point selections are recorded in `
 
 The release contains the complete 23-file Excel set for the public repository:
 
-- eight 60-point control exports covering 100 kHz to 0.1 Hz;
-- fifteen 80-point experimental exports for the 10 valid bars organized into five pairs, covering 1 MHz to 0.1 Hz.
+* eight 60-point control exports covering 100 kHz to 0.1 Hz;
+* fifteen 80-point experimental exports for the 10 valid bars organized into five pairs, covering 1 MHz to 0.1 Hz.
 
 The five pairs were formed because the individual Configuration 1 characterizations, measured with Pt as CE, produced comparable spectra. Pairing was therefore based on the Pt-CE characterization step rather than on the subsequent Configuration 3 outcome.
 
@@ -140,21 +142,38 @@ It does not reproduce instrument acquisition, electrode fabrication, or an exact
 
 ## Scope boundaries
 
-- The repository intentionally contains raw data for 10 valid TiO2+rGO bars organized into five pairs used in the paper, plus the dummy-control exports used for the reported controls.
-- It does not include local working files, measurements outside the data set of 10 valid TiO2+rGO bars organized into five pairs, instrument-acquisition sessions, electrode-fabrication records, internal reviews, or manuscript drafts.
-- Independent bar-pair comparisons do not establish within-cell repeatability or statistical reproducibility.
-- Figure 4 control exports have a different acquired maximum frequency and point count from the electrochemical comparison exports; both ranges are documented rather than homogenized.
+* The repository intentionally contains raw data for 10 valid TiO2+rGO bars organized into five pairs used in the paper, plus the dummy-control exports used for the reported controls.
+* It does not include local working files, measurements outside the data set of 10 valid TiO2+rGO bars organized into five pairs, instrument-acquisition sessions, electrode-fabrication records, internal reviews, or manuscript drafts.
+* Independent bar-pair comparisons do not establish within-cell repeatability or statistical reproducibility.
+* Figure 4 control exports have a different acquired maximum frequency and point count from the electrochemical comparison exports; both ranges are documented rather than homogenized.
 
 ## Citation, licensing, and archiving
 
-Use `CITATION.cff` to cite the repository release. It records the associated paper title, authors, repository URL, and planned release version `1.0.0`; it intentionally does not include ORCID identifiers, a DOI, or a publication date that has not yet been assigned.
+Use `CITATION.cff` to cite the repository release. It records the dataset title, authors, repository URL, release version `1.0.0`, release date, and Zenodo DOI `10.5281/zenodo.22178264`.
+
+The archived release is available through the persistent Zenodo DOI:
+
+https://doi.org/10.5281/zenodo.22178264
 
 This repository uses dual licensing:
 
-- Code in `scr/`, `data_visualization.ipynb`, and Python snippets in the documentation: MIT License.
-- Raw data and documentation in `data/`, `README.md`, `data/README.md`, `CITATION.cff`, and `.zenodo.json`: Creative Commons Attribution 4.0 International (CC BY 4.0).
+* Code in `scr/`, `data_visualization.ipynb`, and Python snippets in the documentation: MIT License.
+* Raw data and documentation in `data/`, `README.md`, `data/README.md`, `CITATION.cff`, and `.zenodo.json`: Creative Commons Attribution 4.0 International (CC BY 4.0).
 
-Releases are intended to be archived through the GitHub-Zenodo integration. The `.zenodo.json` file supplies dataset metadata for Zenodo and intentionally omits article-related identifiers until the paper DOI is available.
+Release `1.0.0` is archived through the GitHub-Zenodo integration. The `.zenodo.json` file supplies the dataset metadata for Zenodo. Article-related identifiers remain omitted until a DOI for the associated paper is available.
+
+````
+@misc{GTM2026a,
+  author    = {Gonzalez, Kevin A. and Toledo, Nicol{\'a}s H. and Miranda, David A.},
+  title     = {Data and code for: Counter-Electrode Dependence of the Working-Electrode Capacitance in Three-Electrode {TiO2 + rGO} Cells: Classical Controls and Interpretation within a Quantum-Discord Framework},
+  year      = {2026},
+  month     = aug,
+  publisher = {Zenodo},
+  version   = {1.0.0},
+  doi       = {10.5281/zenodo.22178264},
+  url       = {https://doi.org/10.5281/zenodo.22178264}
+}
+````
 
 ## AI-assisted work
 
