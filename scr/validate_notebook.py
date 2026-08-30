@@ -1,5 +1,6 @@
 """Execute the public notebook in memory from the repository root."""
 
+import os
 from pathlib import Path
 
 import nbformat
@@ -13,7 +14,7 @@ def main() -> None:
     client = NotebookClient(
         notebook,
         timeout=300,
-        kernel_name="python3",
+        kernel_name=os.environ.get("NOTEBOOK_KERNEL", "python3"),
         resources={"metadata": {"path": str(root)}},
     )
     client.execute()
@@ -22,4 +23,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

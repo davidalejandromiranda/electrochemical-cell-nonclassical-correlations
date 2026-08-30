@@ -5,9 +5,16 @@
 
 ## Scope
 
-This repository releases the author-selected raw Excel exports for the 10 reliable bar measurements used in the paper, together with the dummy-control exports and Python workflow needed to reproduce the data-driven figures associated with the manuscript and its Supplementary Material. It supports traceability from each released export to its loading, validation, transformation, display selection, and plotting function.
+This repository releases raw Excel exports for 10 valid TiO2+rGO bars organized into five pairs used in the paper, together with the dummy-control exports and Python workflow needed to reproduce the data-driven figures associated with the manuscript and its Supplementary Material. It supports traceability from each released export to its loading, validation, transformation, display selection, and plotting function.
 
 The EIS measurements are macroscopic impedance observations. They do not directly measure quantum discord or entanglement. The repository reproduces the reported counter-electrode-dependent spectral comparisons and classical controls; it does not establish the proposed quantum-information interpretation independently of the manuscript's assumptions and limitations.
+
+## Repository metadata
+
+**Repository record title:** Data and code for: Counter-Electrode Dependence of the Working-Electrode Capacitance in Three-Electrode TiO2 + rGO Cells: Classical Controls and Interpretation within a Quantum-Discord Framework  
+**Planned release version:** 1.0.0  
+**Description:** Raw electrochemical impedance spectroscopy exports for the 10 valid TiO2+rGO bars organized into five pairs, dummy-control exports, and Python code/notebook used to reproduce the data-driven figures in the associated paper and Supplementary Material.  
+**Keywords:** electrochemical impedance spectroscopy; complex capacitance; counter electrode; TiO2+rGO; dummy cell; reproducibility
 
 ## Contents
 
@@ -84,7 +91,7 @@ Figures 5–7 and S1–S4 are rendered as capacitance Nyquist panels at left plu
 
 The potentiostat exported the `C' (F)` and `C'' (F)` columns directly. The reproduction workflow uses those exported capacitance columns for Figures 5–7 and S1–S4; it does not recalculate capacitance from impedance for the plotted experimental series. The convention used for capacitance is `C^* = C' - jC''`. Impedance is documented as the measured quantity `Z_m`, without complex-asterisk notation.
 
-Figure 7 marks the nominal dummy-cell frequency with a black dotted vertical line, calculated as `1/(2*pi*R2*C)`. The default dummy values are `R1 = 100 Ohm`, `R2 = 1 kOhm`, `C = 1 uF`, `tau_dummy = 1.00 ms`, and `f_dummy = 159.15 Hz`. The line is controlled by `SHOW_FIGURE_7_DUMMY_FREQUENCY` in the notebook and by `FIGURE_STYLES["figure_7"]["bode"]["dummy_resonance"]["show"]` in `scr/figure_styles.py`. The dummy-cell measurement itself is not plotted.
+Figure 7 marks the nominal dummy-cell frequency with a black dotted vertical line, calculated as `1/(2*pi*R2*C)`. The default dummy values are `R1 = 100 Ohm`, `R2 = 1 kOhm`, `C = 1 uF`, `tau_dummy = 1.00 ms`, and `f_dummy = 159.15 Hz`. The line is controlled by `SHOW_FIGURE_7_DUMMY_FREQUENCY` in the notebook and by `FIGURE_STYLES["figure_7"]["bode"]["dummy_characteristic_frequency"]["show"]` in `scr/figure_styles.py`. The dummy-cell measurement itself is not plotted.
 
 The Configuration 1 Pt-CE measurement is available in `data/Main_Fig6-7/Configuration 1.xlsx` and can be added to Figure 7 by setting `FIGURE_STYLES["figure_7"]["series"]["configuration_1_pt_ce"]["show"] = True`.
 
@@ -110,7 +117,7 @@ Exact source filenames and historical display-point selections are recorded in `
 
 ## Data provenance and integrity
 
-The release contains the complete 23-file Excel set selected by the authors for the public repository:
+The release contains the complete 23-file Excel set for the public repository:
 
 - eight 60-point control exports covering 100 kHz to 0.1 Hz;
 - fifteen 80-point experimental exports for the 10 valid bars organized into five pairs, covering 1 MHz to 0.1 Hz.
@@ -119,7 +126,7 @@ The five pairs were formed because the individual Configuration 1 characterizati
 
 All exports have a single `Sheet1`, nine expected numeric columns, strictly descending frequency, and no missing cells in the released tables. `data/raw_sha256.csv` records their audited SHA-256 digests. The notebook verifies the hashes and structural expectations before generating figures.
 
-Raw workbook values are retained exactly. The four `Main_Fig6-7/` files were renamed from color-based filenames to their legend identities; the SHA-256 hashes in `data/raw_sha256.csv` verify that the workbook contents were not changed. Derived capacitance arrays and the Figure 5 equivalent response are generated in memory; they are not committed as a second canonical dataset.
+Raw workbook values are retained exactly. The four `Main_Fig6-7/` files were renamed from color-based filenames to their legend identities; the SHA-256 hashes in `data/raw_sha256.csv` verify that the workbook contents were not changed. The plotted experimental capacitance components are read from the potentiostat-exported `C' (F)` and `C'' (F)` columns. Only the Figure 5 equivalent response and the reference models are calculated in memory; they are not committed as a second canonical dataset.
 
 ## Reproducibility level
 
@@ -133,8 +140,8 @@ It does not reproduce instrument acquisition, electrode fabrication, or an exact
 
 ## Scope boundaries
 
-- The repository intentionally contains only the author-selected raw data for the 10 reliable bar measurements used in the paper, plus the dummy-control exports used for the reported controls.
-- It does not include local working files, measurements outside the author-selected reliable-data set, instrument-acquisition sessions, electrode-fabrication records, internal reviews, or manuscript drafts.
+- The repository intentionally contains raw data for 10 valid TiO2+rGO bars organized into five pairs used in the paper, plus the dummy-control exports used for the reported controls.
+- It does not include local working files, measurements outside the data set of 10 valid TiO2+rGO bars organized into five pairs, instrument-acquisition sessions, electrode-fabrication records, internal reviews, or manuscript drafts.
 - Independent bar-pair comparisons do not establish within-cell repeatability or statistical reproducibility.
 - Figure 4 control exports have a different acquired maximum frequency and point count from the electrochemical comparison exports; both ranges are documented rather than homogenized.
 
@@ -147,7 +154,7 @@ This repository uses dual licensing:
 - Code in `scr/`, `data_visualization.ipynb`, and Python snippets in the documentation: MIT License.
 - Raw data and documentation in `data/`, `README.md`, `data/README.md`, `CITATION.cff`, and `.zenodo.json`: Creative Commons Attribution 4.0 International (CC BY 4.0).
 
-The `.zenodo.json` file prepares dataset metadata for the future Zenodo deposition. No tag, GitHub release, Zenodo deposition, or DOI has been created in this staging copy.
+Releases are intended to be archived through the GitHub-Zenodo integration. The `.zenodo.json` file supplies dataset metadata for Zenodo and intentionally omits article-related identifiers until the paper DOI is available.
 
 ## AI-assisted work
 

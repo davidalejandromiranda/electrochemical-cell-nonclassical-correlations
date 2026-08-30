@@ -1,6 +1,6 @@
 # Released EIS exports
 
-This directory contains 23 Excel exports used by the public figure-reproduction workflow: the author-selected raw data for the 10 reliable bar measurements reported in the paper, plus the dummy-control exports. The workbook values are unmodified copies of the selected working exports. Files in `Main_Fig6-7/` are named by the corresponding legend labels rather than by plotting colors.
+This directory contains 23 Excel exports used by the public figure-reproduction workflow: raw data for 10 valid TiO2+rGO bars organized into five pairs reported in the paper, plus the dummy-control exports. The workbook values are unmodified copies of the selected working exports. Files in `Main_Fig6-7/` are named by the corresponding legend labels rather than by plotting colors.
 
 ## Coverage
 
@@ -73,4 +73,4 @@ The capacitance convention is `C^* = C' - jC''`. The reproduction workflow uses 
 
 The workbook dimension metadata may be reported as `A1:A1` by direct `openpyxl` read-only iteration. `pandas.read_excel`, which is the tested loader used by this repository, retrieves the complete 60- or 80-row tables and all nine columns. The raw workbooks were not rewritten to change this metadata.
 
-The data package is intentionally limited to the raw exports selected by the authors for the reported figures. It is not a laboratory ledger and should not be used to infer additional sample-history metadata beyond the figure provenance documented here.
+The data package is intentionally limited to the raw exports for the reported figures. It is not a laboratory ledger and should not be used to infer additional sample-history metadata beyond the figure provenance documented here.

@@ -25,7 +25,7 @@ from scr.figure_styles import FIGURE_STYLES
 
 MICRO = 1e6
 BODE_FREQUENCY_LIMITS = (0.1, 1.0e6)
-DUMMY_RESONANCE = FIGURE_STYLES["figure_7"]["bode"]["dummy_resonance"]
+DUMMY_CHARACTERISTIC_FREQUENCY = FIGURE_STYLES["figure_7"]["bode"]["dummy_characteristic_frequency"]
 REQUIRED_COLUMNS = (
     "Index",
     "C' (F)",
@@ -190,31 +190,31 @@ def _format_bode_axes(real_axis, imaginary_axis, bode_style: Mapping) -> None:
     _format_bode_axis(real_axis, bode_style, r"C' [$\mu F$]")
     _format_bode_axis(imaginary_axis, bode_style, r"C'' [$\mu F$]", xlabel=True)
     plt.setp(real_axis.get_xticklabels(), visible=False)
-    _plot_dummy_resonance(imaginary_axis, bode_style.get("dummy_resonance", {}))
+    _plot_dummy_characteristic_frequency(imaginary_axis, bode_style.get("dummy_characteristic_frequency", {}))
 
 
-def _dummy_resonance_frequency(resonance_style: Mapping) -> float:
+def _dummy_characteristic_frequency_frequency(resonance_style: Mapping) -> float:
     resistance = float(
         resonance_style.get(
             "parallel_resistance_ohm",
-            resonance_style.get("resistance_ohm", DUMMY_RESONANCE["parallel_resistance_ohm"]),
+            resonance_style.get("resistance_ohm", DUMMY_CHARACTERISTIC_FREQUENCY["parallel_resistance_ohm"]),
         )
     )
-    capacitance = float(resonance_style.get("capacitance_f", DUMMY_RESONANCE["capacitance_f"]))
+    capacitance = float(resonance_style.get("capacitance_f", DUMMY_CHARACTERISTIC_FREQUENCY["capacitance_f"]))
     return 1.0 / (2.0 * pi * resistance * capacitance)
 
 
-def _plot_dummy_resonance(axis, resonance_style: Mapping) -> None:
+def _plot_dummy_characteristic_frequency(axis, resonance_style: Mapping) -> None:
     if not resonance_style.get("show", False):
         return
-    frequency = _dummy_resonance_frequency(resonance_style)
+    frequency = _dummy_characteristic_frequency_frequency(resonance_style)
     keys = ("color", "linestyle", "linewidth", "alpha")
     line_kwargs = {key: resonance_style[key] for key in keys if key in resonance_style}
-    line_kwargs["label"] = resonance_style.get("label", DUMMY_RESONANCE["label"])
+    line_kwargs["label"] = resonance_style.get("label", DUMMY_CHARACTERISTIC_FREQUENCY["label"])
     axis.axvline(frequency, **line_kwargs)
     if resonance_style.get("annotate", False):
         axis.annotate(
-            resonance_style.get("annotation", DUMMY_RESONANCE["annotation"]),
+            resonance_style.get("annotation", DUMMY_CHARACTERISTIC_FREQUENCY["annotation"]),
             xy=(frequency, 0.96),
             xycoords=("data", "axes fraction"),
             xytext=(4, 0),

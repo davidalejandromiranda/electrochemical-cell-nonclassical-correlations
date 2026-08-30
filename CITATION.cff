@@ -2,6 +2,7 @@ cff-version: 1.2.0
 message: "If you use this dataset or code, please cite this repository and the associated paper."
 type: dataset
 title: "Data and code for: Counter-Electrode Dependence of the Working-Electrode Capacitance in Three-Electrode TiO2 + rGO Cells: Classical Controls and Interpretation within a Quantum-Discord Framework"
+abstract: "Raw electrochemical impedance spectroscopy exports for the 10 valid TiO2+rGO bars organized into five pairs, dummy-control exports, and Python code/notebook used to reproduce the data-driven figures in the associated paper and Supplementary Material."
 authors:
   - family-names: Gonzalez
     given-names: Kevin A.
@@ -14,7 +15,6 @@ authors:
     affiliation: "Universidad Industrial de Santander, 680002 Bucaramanga, Santander, Colombia"
 repository-code: "https://github.com/davidalejandromiranda/electrochemical-cell-nonclassical-correlations"
 version: "1.0.0"
-license: "MIT AND CC-BY-4.0"
 keywords:
   - electrochemical impedance spectroscopy
   - complex capacitance
